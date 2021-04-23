@@ -17,6 +17,7 @@ import java.util.List;
 @Data
 
 @Entity
+@NamedQuery(name = "Team.findByLeagueId", query = "SELECT t FROM Team t WHERE t.league.id =:league_id")
 public class Team implements Serializable {
 
     @Id
