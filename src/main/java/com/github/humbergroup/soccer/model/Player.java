@@ -22,7 +22,7 @@ public class Player implements Serializable {
     @Id
     @SequenceGenerator(name = "player_sequence", sequenceName = "player_sequence")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "player_sequence")
-    @Column(unique = true)
+
     private Long id;
 
     @Column(name = "first_name")
