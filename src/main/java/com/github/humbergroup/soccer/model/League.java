@@ -20,6 +20,7 @@ public class League implements Serializable {
     @Id
     @SequenceGenerator(name = "team_sequence", sequenceName = "team_sequence")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team_sequence")
+    @Column(unique = true)
     private Long id;
 
     @Column(name = "name")
