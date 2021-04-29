@@ -17,18 +17,9 @@ public class PlayerServiceImpl implements PlayerService {
     private EntityManager em;
 
     @Override
-    public Long createPlayer(Player player) {
+    public Player createPlayer(Player player) {
         em.persist(player);
-        return player.getId();
-    }
-
-    @Override
-    public Long createPlayerWithTeamId(Player player, Long teamId) {
-        Team team = em.find(Team.class, teamId);
-        Helper.notNullRequired(team, "team not exist with id: " + teamId);
-
-        player.setTeam(team);
-        return createPlayer(player);
+        return player;
     }
 
     @Override
@@ -60,13 +51,13 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public void update(Long id, Player player) {
-        Player en = em.find(Player.class, id);
-        Helper.notNullRequired(en, "player not exist with id: " + id);
+    public void update(Player player) {
+        Player en = em.find(Player.class, player.getId());
+        Helper.notNullRequired(en, "player not exist with id: " + player.getId());
 
         en.setFirstName(player.getFirstName());
         en.setLastName(player.getLastName());
         en.setDateOfBirth(player.getDateOfBirth());
-        em.persist(en);
+        em.merge(en);
     }
 }

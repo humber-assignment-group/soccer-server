@@ -15,8 +15,8 @@ public class LeagueServiceImpl implements LeagueService {
     private EntityManager em;
 
     @Override
-    public Long create(League league) {
+    public League create(League league) {
         em.persist(league);
-        return league.getId();
+        return league;
     }
 }

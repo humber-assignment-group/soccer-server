@@ -6,9 +6,7 @@ import java.util.List;
 
 public interface PlayerService {
 
-    Long createPlayer(Player player);
-
-    Long createPlayerWithTeamId(Player player, Long teamId);
+    Player createPlayer(Player player);
 
     void addPlayerIntoTeam(Long playerId, Long teamId);
 
@@ -18,5 +16,5 @@ public interface PlayerService {
 
     void delete(Long id);
 
-    void update(Long id, Player player);
+    void update(Player player);
 }

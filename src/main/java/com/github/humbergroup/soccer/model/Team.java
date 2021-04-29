@@ -1,5 +1,6 @@
 package com.github.humbergroup.soccer.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,6 +35,7 @@ public class Team implements Serializable {
     private List<Player> players;
 
     @Column(name = "date_of_next_game")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateOfNextGame;
 
     @ManyToOne

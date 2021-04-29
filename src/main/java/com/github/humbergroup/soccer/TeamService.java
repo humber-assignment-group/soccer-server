@@ -6,9 +6,7 @@ import java.util.List;
 
 public interface TeamService {
 
-    Long createTeam(Team team);
-
-    Long createTeamWithLeagueId(Team team, Long leagueId);
+    Team createTeam(Team team);
 
     void addTeamIntoLeague(Long teamId, Long leagueId);
 

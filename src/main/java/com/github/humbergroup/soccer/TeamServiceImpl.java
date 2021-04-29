@@ -17,18 +17,9 @@ public class TeamServiceImpl implements TeamService {
     private EntityManager em;
 
     @Override
-    public Long createTeam(Team team) {
+    public Team createTeam(Team team) {
         em.persist(team);
-        return team.getId();
-    }
-
-    @Override
-    public Long createTeamWithLeagueId(Team team, Long leagueId) {
-        League league = em.find(League.class, leagueId);
-        Helper.notNullRequired(league, "league not exist with id: " + leagueId);
-
-        team.setLeague(league);
-        return createTeam(team);
+        return team;
     }
 
     @Override
